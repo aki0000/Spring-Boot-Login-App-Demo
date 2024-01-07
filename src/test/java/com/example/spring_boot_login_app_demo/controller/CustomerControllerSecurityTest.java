@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -21,7 +20,7 @@ public class CustomerControllerSecurityTest {
     MockMvc mockMvc;
 
     @Test
-    void test_customer_enableToAccessByAdmin() throws Exception {
+    void test_customer_enableToAccessByAdminRole() throws Exception {
         mockMvc.perform(
             get("/customer/display-list")
             .with(user("admin").roles("ADMIN"))
@@ -30,12 +29,11 @@ public class CustomerControllerSecurityTest {
     }
 
     @Test
-    void test_customer_unableToAccessByUser() throws Exception {
+    void test_customer_unableToAccessByUserRole() throws Exception {
         mockMvc.perform(
             get("/customer/display-list")
             .with(user("user").roles("User"))
         )
         .andExpect(status().isForbidden());
     }
-
 }
