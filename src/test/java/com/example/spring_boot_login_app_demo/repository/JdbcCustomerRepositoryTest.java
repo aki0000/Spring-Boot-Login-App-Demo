@@ -1,4 +1,4 @@
-package com.example.spring_boot_login_app_demo.com.example.spring_boot_login_app_demo.repository;
+package com.example.spring_boot_login_app_demo.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 
 import com.example.spring_boot_login_app_demo.entity.Cusotmer;
-import com.example.spring_boot_login_app_demo.repository.CustomerRepository;
-import com.example.spring_boot_login_app_demo.repository.JdbcCustomerRepository;
 
 @JdbcTest
 @Sql("JdbcCustomerRepositoryTest.sql")
@@ -57,11 +55,11 @@ public class JdbcCustomerRepositoryTest {
         assertThat(customers.get(0).getCustomerId()).isEqualTo("00001");
         assertThat(customers.get(0).getCustomerName()).isEqualTo("TEST TARO");
         assertThat(customers.get(0).getCustomerAddress()).isEqualTo("東京都品川区AAA");
-        assertThat(customers.get(0).getCustomerId()).isEqualTo("00002");
-        assertThat(customers.get(0).getCustomerName()).isEqualTo("TEST JIRO");
-        assertThat(customers.get(0).getCustomerAddress()).isEqualTo("東京都品川区BBB");
-        assertThat(customers.get(0).getCustomerId()).isEqualTo("00003");
-        assertThat(customers.get(0).getCustomerName()).isEqualTo("TEST SABURO");
-        assertThat(customers.get(0).getCustomerAddress()).isEqualTo("東京都品川区CCC");
+        assertThat(customers.get(1).getCustomerId()).isEqualTo("00002");
+        assertThat(customers.get(1).getCustomerName()).isEqualTo("TEST JIRO");
+        assertThat(customers.get(1).getCustomerAddress()).isEqualTo("東京都品川区BBB");
+        assertThat(customers.get(2).getCustomerId()).isEqualTo("00003");
+        assertThat(customers.get(2).getCustomerName()).isEqualTo("TEST SABURO");
+        assertThat(customers.get(2).getCustomerAddress()).isEqualTo("東京都品川区CCC");
     }
 }
