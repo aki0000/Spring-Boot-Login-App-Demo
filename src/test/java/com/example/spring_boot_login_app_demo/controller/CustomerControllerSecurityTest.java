@@ -4,6 +4,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,12 +15,13 @@ import com.example.spring_boot_login_app_demo.security.SecurityConfig;
 
 @WebMvcTest(CustomerController.class)
 @Import(SecurityConfig.class)
-public class CustomerControllerSecurityTest {
+class CustomerControllerSecurityTest {
 
     @Autowired
     MockMvc mockMvc;
 
     @Test
+    @DisplayName("顧客一覧ページにadminユーザがアクセスできる")
     void test_customer_enableToAccessByAdminRole() throws Exception {
         mockMvc.perform(
             get("/customer/display-list")
@@ -29,6 +31,7 @@ public class CustomerControllerSecurityTest {
     }
 
     @Test
+    @DisplayName("顧客一覧ページにuserユーザがアクセスできない")
     void test_customer_unableToAccessByUserRole() throws Exception {
         mockMvc.perform(
             get("/customer/display-list")

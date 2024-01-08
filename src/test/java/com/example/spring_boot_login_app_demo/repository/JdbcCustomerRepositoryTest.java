@@ -9,6 +9,7 @@ import org.springframework.test.context.jdbc.Sql;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -18,7 +19,7 @@ import com.example.spring_boot_login_app_demo.entity.Cusotmer;
 @JdbcTest
 @Sql("JdbcCustomerRepositoryTest.sql")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class JdbcCustomerRepositoryTest {
+class JdbcCustomerRepositoryTest {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -31,6 +32,7 @@ public class JdbcCustomerRepositoryTest {
     }
 
     @Test
+    @DisplayName("顧客IDで顧客情報を取得できる")
     void test_selectByCustomerId() {
         List<Cusotmer> customers = customerRepository.selectByCustomerId("00001");
         assertThat(customers.size()).isEqualTo(1);
@@ -40,6 +42,7 @@ public class JdbcCustomerRepositoryTest {
     }
 
     @Test
+    @DisplayName("顧客名で顧客情報を取得できる")
     void test_selectByCustomerName() {
         List<Cusotmer> customers = customerRepository.selectByCustomerName("TEST TARO");
         assertThat(customers.size()).isEqualTo(1);
@@ -49,6 +52,7 @@ public class JdbcCustomerRepositoryTest {
     }
 
     @Test
+    @DisplayName("すべての顧客情報を取得できる")
     void test_selectByCustomerAll() {
         List<Cusotmer> customers = customerRepository.selectAll();
         assertThat(customers.size()).isEqualTo(3);
