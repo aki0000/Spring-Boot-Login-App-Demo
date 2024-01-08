@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.example.spring_boot_login_app_demo.entity.Cusotmer;
 import com.example.spring_boot_login_app_demo.security.SecurityConfig;
 import com.example.spring_boot_login_app_demo.service.CustomerService;
 
