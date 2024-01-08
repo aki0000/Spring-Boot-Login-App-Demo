@@ -1,5 +1,8 @@
 package com.example.spring_boot_login_app_demo.entity;
 
+import lombok.Data;
+
+@Data
 public class Cusotmer {
 
     private Integer id;

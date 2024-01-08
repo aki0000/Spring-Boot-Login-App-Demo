@@ -21,7 +21,7 @@ public class JdbcCustomerRepository implements CustomerRepository {
 
     @Override
     public List<Cusotmer> selectByCustomerId(String customerId) {
-        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM cutomers WHERE customer_id = ?",
+        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM customers WHERE customer_id = ?",
         new DataClassRowMapper<>(Cusotmer.class),
         customerId);
         return customers;
@@ -29,7 +29,7 @@ public class JdbcCustomerRepository implements CustomerRepository {
 
     @Override
     public List<Cusotmer> selectByCustomerName(String customerName) {
-        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM cutomers WHERE customer_name = ?",
+        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM customers WHERE customer_name = ?",
         new DataClassRowMapper<>(Cusotmer.class),
         customerName);
         return customers;
@@ -38,7 +38,7 @@ public class JdbcCustomerRepository implements CustomerRepository {
 
     @Override
     public List<Cusotmer> selectAll() {
-        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM cutomers",
+        List<Cusotmer> customers = jdbcTemplate.query("SELECT * FROM customers",
         new DataClassRowMapper<>(Cusotmer.class));
         return customers;
     }
