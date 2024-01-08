@@ -18,7 +18,7 @@ public class LoginController {
         return "auth/loginForm";
     }
 
-    @GetMapping(value = "/login", params = "failure")
+    @GetMapping(value = "loginForm", params = "failure")
     public String loginFail(Model model) {
         model.addAttribute("failureMessage", "Wrong ID or Password");
         return "auth/loginForm";
