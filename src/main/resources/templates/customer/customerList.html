@@ -6,5 +6,27 @@
 </head>
 <body>
 <h1>顧客情報リスト</h1>
+<table border="1">
+  <tr>
+    <th>顧客ID</th>
+    <th>顧客名</th>
+    <th>顧客住所</th>
+  </tr>
+  <tr th:each="customer:${customerList}">
+    <td>
+      <a th:href="@{/customer/display-list(no=${customer.id})}">
+        <span th:text="${customer.customerId}"></span>
+      </a>
+    </td>
+    <td>
+      <span th:text="${customer.customerName}"></span>
+    </td>
+    <td>
+      <span th:text="${customer.customerAddress}"></span>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
 </body>
 </html>
